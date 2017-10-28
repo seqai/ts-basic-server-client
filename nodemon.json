@@ -1,0 +1,10 @@
+{
+    "ignore": ["__dist/client/*"],
+    "verbose": false,
+    "execMap": {
+        "js": "node"
+    },
+    "events": {
+        "restart": "cross-var echo-cli App restarted due to: $FILENAME"
+    }
+}
