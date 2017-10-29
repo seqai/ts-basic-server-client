@@ -1,17 +1,19 @@
-
 import * as fs from "fs";
 import { injectable } from "inversify";
 import { DataService } from "../../interfaces/dataService/DataService";
 import { DataItem } from "./../../../../common/model/interfaces/DataItem";
+import { DataItemSummary } from "../../../../common/model/interfaces/DataItemSummary";
 
 const names: string[] = ["Venus", "Bogatyr", "Baron", "Red Snapper"];
 
 @injectable()
 export default class RandomDataSerice implements DataService  {
-    getAllData(): DataItem[] {
-        return [this.generateItem(), this.generateItem(), this.generateItem()];
+    getAllData(): DataItemSummary[] {
+        return [this.generateItem(), this.generateItem(), this.generateItem()].map(item => {
+            return { name: item.name };
+        });
     }
-    
+
     getData(id: number): DataItem {
         return this.generateItem();
     }
