@@ -29,11 +29,13 @@ module.exports = {
             {
                 enforce: "pre",
                 test: /\.js$/,
-                loader: "source-map-loader",
+				exclude: /node_modules/,				
+                loader: "source-map-loader"
             },
             {
                 enforce: "pre",
                 test: /\.ts$/,
+				exclude: /node_modules/,
                 use: "source-map-loader"
             },
             {
